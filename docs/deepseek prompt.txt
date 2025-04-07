@@ -1,0 +1,19 @@
+ let's tackle this prompt for the inventory management software. The user wants a system for a paint shop that handles inventory, generates reports, manages orders with tax calculations, and more. First, I need to break down the requirements to make sure everything is covered.
+
+Starting with the inventory management. The paint and putty come in specific volumes and categories. The system needs to track these with FIFO, which means when items are sold, the oldest stock is used first. That's important for cost tracking since prices might change when restocking. So, each product entry should have a purchase date and cost. When a sale happens, the oldest stock is deducted first.
+
+Next, handling orders and customers. The customer table is straightforward—only ID, name, phone, and address. Orders need to include product details, dates in AD and BS formats, paint shades as slugs, and partial payments. The system should track pending amounts and advances. Also, reports should show customers with incomplete payments sorted by date.
+
+Tax calculations are critical. Excise duty is 7% on the wholesale price, then VAT is 13% on the total after adding excise. The retail price would be wholesale plus excise, and the final price after VAT. Need to make sure these are calculated per item and summed up for the total order.
+
+Reports and exports in CSV or Excel. The user mentioned generating reports per person, especially those with incomplete payments. The system should export order histories, inventory levels, and financial reports. Also, products from various companies should be trackable, so a company field in the product table is necessary.
+
+The app is desktop-only, so considering frameworks like Electron or JavaFX. Database choice is important—maybe SQLite for simplicity or PostgreSQL for scalability. Date handling in AD and BS might require a conversion library, so integrating that would be needed.
+
+Testing and validation: Ensure that all calculations are accurate, FIFO works correctly, and reports are generated properly. Also, check that partial payments update the customer's pending balance correctly. Data export formats must be compatible with Excel without issues.
+
+Potential edge cases: Handling different product categories (paint, putty, smart care) with their respective units. Making sure that when a product is sold, the correct category's stock is updated. Also, ensuring that the excise and VAT are applied correctly based on the product's category and wholesale price.
+
+Documentation and reproducibility: The prompt should be clear enough for a developer to build the system without ambiguity. Including examples of data structures, formulas for taxes, and workflow steps can help. Maybe outline the database schema with tables like Products, Customers, Orders, OrderItems, Payments, InventoryStock, etc.
+
+I need to structure the prompt logically, starting with core features, then moving to specific requirements like tax calculation, inventory management, reporting, and technical constraints. Ensuring that each section is concise but covers all necessary details. Also, mentioning non-functional requirements like performance for handling large batches and data export capabilities.

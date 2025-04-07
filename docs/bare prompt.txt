@@ -1,0 +1,27 @@
+design a prompt around this, refactor it, make it better, make response be easily reproduceabe as its going to take alot of new prompting
+- i am tasked to make a inventory management software for a paint shop.
+- additionally it should be able to generate report and orders made by specific person. Then export it on csv, xls and another format which makes it easy to work with ms excel.
+- on the customer table we don't need more than id, name, phone and address
+
+- the paint comes in these volumn 40 Ltr,20 Ltr,10 Ltr,4 Ltr,1 Ltr,500 Ml,200 Ml,100 Ml and 50 Ml
+
+- also they have putties that come in [40 Kg,20 Kg,10 Kg,4 Kg,1 Kg] and they have a different category of product called 'smartcare range' which contains in range of [20 Ltr/Kg,10 Ltr/Kg,5 Ltr/Kg,4 Ltr/Kg,3 Ltr/Kg,1 Ltr/Kgand 250 Ml] ranges of product
+- the system will be given prices of those range in whole sale rate.
+- the system should calculate excise duty and vat at the time of billing like when adding the ordered items in database as the customer could order a large batch so it should be able to handle multiple sales
+- the excise duty and vat are constant at 7% and 13% respectively
+- the system should add excise duty and lavel it as retail price and after adding vat to excise duty it should calculate after vat price.
+- the inventory should be first in first out, as a inventory could cost more at the time of purchase but the price could decrease after restocking, so the first should sold first and latter varient is to be sold later
+- on order items should also have product name, date [in both AD and Bs format],
+- when ordered paint, it should also contian paint_shade which technically is a slug
+- it should be able to record how much has been given in advance and pending amount of that customer. Partial payment handling
+- additionally, the reports generation on person should have since which order they have not paid or incomplete paid; sorted by date
+- the system should be able to add priducts of vairous companies
+
+- this is a desktop only app.
+
+
+
+- the system
+
+- maka a srs doc of it.
+- on products table, it should contain paint_shade, product name, date [in both AD and Bs format],
