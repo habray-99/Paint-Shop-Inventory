@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using WebApplication1.Models;
 
 namespace WebApplication1.Data
 {
     public class WebApplication1Context : DbContext
     {
+
         public WebApplication1Context (DbContextOptions<WebApplication1Context> options)
             : base(options)
         {
@@ -27,7 +24,7 @@ namespace WebApplication1.Data
             modelBuilder.Entity<Product>()
                 .Property(p => p.Category)
                 .HasConversion<string>();
-
+                
             modelBuilder.Entity<Product>()
                 .Property(p => p.Volume)
                 .HasConversion<string>();
@@ -36,11 +33,11 @@ namespace WebApplication1.Data
             modelBuilder.Entity<Product>()
                 .HasIndex(p => p.Name)
                 .HasDatabaseName("IX_Product_Name");
-
+                
             modelBuilder.Entity<Product>()
                 .HasIndex(p => p.Company)
                 .HasDatabaseName("IX_Product_Company");
-
+                
             modelBuilder.Entity<Product>()
                 .HasIndex(p => new { p.Category, p.Volume })
                 .HasDatabaseName("IX_Product_Category_Volume");

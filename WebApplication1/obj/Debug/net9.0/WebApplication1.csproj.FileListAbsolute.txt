@@ -91,7 +91,6 @@ E:\paint shop\WebApplication1\obj\Debug\net9.0\staticwebassets\msbuild.build.Web
 E:\paint shop\WebApplication1\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.WebApplication1.props
 E:\paint shop\WebApplication1\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.WebApplication1.props
 E:\paint shop\WebApplication1\obj\Debug\net9.0\staticwebassets.pack.json
-E:\paint shop\WebApplication1\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 E:\paint shop\WebApplication1\obj\Debug\net9.0\WebApplication1.dll
 E:\paint shop\WebApplication1\obj\Debug\net9.0\refint\WebApplication1.dll
 E:\paint shop\WebApplication1\obj\Debug\net9.0\WebApplication1.pdb
