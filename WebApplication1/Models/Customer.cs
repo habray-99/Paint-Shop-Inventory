@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using WebApplication1.Models;
 
 public class Customer
 {
@@ -11,5 +12,5 @@ public class Customer
     [Required] [StringLength(200)] public string Address { get; set; }
 
     // Navigation property
-    //public ICollection<Order> Orders { get; set; }
+    public ICollection<Order> Orders { get; set; }
 }

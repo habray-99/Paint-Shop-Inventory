@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
 
@@ -21,7 +16,7 @@ namespace WebApplication1
         // GET: Customers
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Customer.ToListAsync());
+            return View(await _context.Customers.ToListAsync());
         }
 
         // GET: Customers/Details/5
@@ -32,7 +27,7 @@ namespace WebApplication1
                 return NotFound();
             }
 
-            var customer = await _context.Customer
+            var customer = await _context.Customers
                 .FirstOrDefaultAsync(m => m.CustomerId == id);
             if (customer == null)
             {
@@ -72,7 +67,7 @@ namespace WebApplication1
                 return NotFound();
             }
 
-            var customer = await _context.Customer.FindAsync(id);
+            var customer = await _context.Customers.FindAsync(id);
             if (customer == null)
             {
                 return NotFound();
@@ -123,7 +118,7 @@ namespace WebApplication1
                 return NotFound();
             }
 
-            var customer = await _context.Customer
+            var customer = await _context.Customers
                 .FirstOrDefaultAsync(m => m.CustomerId == id);
             if (customer == null)
             {
@@ -138,10 +133,10 @@ namespace WebApplication1
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var customer = await _context.Customer.FindAsync(id);
+            var customer = await _context.Customers.FindAsync(id);
             if (customer != null)
             {
-                _context.Customer.Remove(customer);
+                _context.Customers.Remove(customer);
             }
 
             await _context.SaveChangesAsync();
@@ -150,7 +145,7 @@ namespace WebApplication1
 
         private bool CustomerExists(int id)
         {
-            return _context.Customer.Any(e => e.CustomerId == id);
+            return _context.Customers.Any(e => e.CustomerId == id);
         }
     }
 }
