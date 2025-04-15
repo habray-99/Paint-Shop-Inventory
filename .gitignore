@@ -47,3 +47,5 @@ msbuild.wrn
 *.pdb
 *.mdb
 *.cache
+*.v2/
+*.json/
