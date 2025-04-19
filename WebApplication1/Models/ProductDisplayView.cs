@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 
+namespace WebApplication1.Models;
+
 [Keyless]
 public class ProductDisplayView
 {

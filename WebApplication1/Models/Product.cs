@@ -13,7 +13,7 @@ public class Product
     public int ProductId { get; set; }
 
     [Required, MaxLength(100)]
-    public string Name { get; set; }
+    public required string Name { get; set; }
 
     [Required]
     public ProductCategory Category { get; set; }
@@ -22,10 +22,10 @@ public class Product
     public ProductVolume Volume { get; set; }
 
     [Required, MaxLength(100)]
-    public string Company { get; set; }
+    public required string Company { get; set; }
 
     [Required, MaxLength(50)]
-    public string ShadeSlug { get; set; }
+    public required string ShadeSlug { get; set; }
 
     [Column(TypeName = "decimal(18,2)")]
     public decimal WholesalePrice { get; set; }
@@ -34,6 +34,6 @@ public class Product
     public decimal RetailPrice { get; set; }
 
     // Navigation
-    public ICollection<InventoryStock> InventoryStocks { get; set; }
-    public ICollection<OrderItem> OrderItems { get; set; }
+    public ICollection<InventoryStock>? InventoryStocks { get; set; }
+    public ICollection<OrderItem>? OrderItems { get; set; }
 }

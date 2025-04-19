@@ -26,9 +26,9 @@ public class OrderItem
     public decimal ExciseDuty { get; set; }
 
     [Column(TypeName = "decimal(18,2)")]
-    public decimal VAT { get; set; }
+    public decimal Vat { get; set; }
 
     // Navigation
-    public Order Order { get; set; }
-    public Product Product { get; set; }
+    public Order? Order { get; set; }
+    public Product? Product { get; set; }
 }

@@ -21,7 +21,7 @@ public class Order
     [BsDateFormat]
     [Column(TypeName = "Text")]
     [MaxLength(20)]
-    public string DateBs { get; set; }
+    public string? DateBs { get; set; }
 
     [Column(TypeName = "decimal(18,2)")]
     public decimal TotalAmount { get; set; }
@@ -30,7 +30,7 @@ public class Order
     public decimal PendingAmount { get; set; }
 
     // Navigation
-    public Customer Customer { get; set; }
-    public ICollection<OrderItem> OrderItems { get; set; }
-    public ICollection<Payment> Payments { get; set; }
+    public Customer? Customer { get; set; }
+    public ICollection<OrderItem>? OrderItems { get; set; }
+    public ICollection<Payment>? Payments { get; set; }
 }

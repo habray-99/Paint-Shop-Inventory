@@ -202,9 +202,9 @@ namespace WebApplication1.Data
                 new Order { OrderId = 2, CustomerId = 2, DateAd = new DateTime(2025, 4, 12), DateBs = "2081-01-29", TotalAmount = 500.00m, PendingAmount = 0.00m }
             );
             modelBuilder.Entity<OrderItem>().HasData(
-                new OrderItem { ItemId = 1, OrderId = 1, ProductId = 1, Quantity = 1, UnitPrice = 800.00m, ExciseDuty = 56.00m, VAT = 117.04m },
-                new OrderItem { ItemId = 2, OrderId = 1, ProductId = 2, Quantity = 1, UnitPrice = 500.00m, ExciseDuty = 35.00m, VAT = 73.15m },
-                new OrderItem { ItemId = 3, OrderId = 2, ProductId = 2, Quantity = 1, UnitPrice = 500.00m, ExciseDuty = 35.00m, VAT = 73.15m }
+                new OrderItem { ItemId = 1, OrderId = 1, ProductId = 1, Quantity = 1, UnitPrice = 800.00m, ExciseDuty = 56.00m, Vat = 117.04m },
+                new OrderItem { ItemId = 2, OrderId = 1, ProductId = 2, Quantity = 1, UnitPrice = 500.00m, ExciseDuty = 35.00m, Vat = 73.15m },
+                new OrderItem { ItemId = 3, OrderId = 2, ProductId = 2, Quantity = 1, UnitPrice = 500.00m, ExciseDuty = 35.00m, Vat = 73.15m }
             );
             modelBuilder.Entity<Payment>().HasData(
                 new Payment

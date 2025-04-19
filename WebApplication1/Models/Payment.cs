@@ -21,10 +21,11 @@ public class Payment
     [Column(TypeName = "date")]
     public DateTime PaymentDateAd { get; set; }
     [Column(TypeName = "TEXT")]
-    public string PaymentDateBs { get; set; }
+    [MaxLength(20)]
+    public string? PaymentDateBs { get; set; }
 
     public bool IsAdvance { get; set; }
 
     // Navigation
-    public Order Order { get; set; }
+    public Order? Order { get; set; }
 }

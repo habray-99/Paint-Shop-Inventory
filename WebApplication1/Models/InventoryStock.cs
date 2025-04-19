@@ -28,5 +28,5 @@ public class InventoryStock
     public decimal CostPrice { get; set; }
     
     // Navigation
-    public Product Product { get; set; }
+    public Product? Product { get; set; }
 }
