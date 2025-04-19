@@ -1,0 +1,71 @@
+### **Clarification: WholesalePrice in Products**  
+
+The **`WholesalePrice`** in the `Products` table represents the **base price per unit** of a product (e.g., per liter for paint, per kg for putty) **before any taxes are applied**.  
+
+#### **Key Points:**  
+1. **Definition**:  
+   - This is the price the shop pays to the supplier (or the cost before markup).  
+   - Example:  
+     - **4L Paint** may have a `WholesalePrice = 800 NPR` (per unit).  
+     - **5Kg Putty** may have a `WholesalePrice = 500 NPR` (per unit).  
+
+2. **How It’s Used**:  
+   - **For Tax Calculations**:  
+     - Excise (7%) and VAT (13%) are calculated **on top of** the `WholesalePrice`.  
+     - Example:  
+       ```  
+       WholesalePrice = 800 NPR  
+       Excise = 800 × 0.07 = 56 NPR  
+       VAT = (800 + 56) × 0.13 = 111.28 NPR  
+       RetailPrice = 800 + 56 + 111.28 = 967.28 NPR  
+       ```  
+   - **For FIFO Inventory**:  
+     - The `CostPrice` in `InventoryStock` may vary per batch, but **`WholesalePrice` in `Products` is a reference for current pricing**.  
+     - Example:  
+       - Batch A (May 2024): `CostPrice = 800 NPR`  
+       - Batch B (July 2024): `CostPrice = 850 NPR` (due to inflation)  
+       - The `Products.WholesalePrice` could be updated to `850 NPR` when Batch B becomes the primary stock.  
+
+3. **When Does It Change?**  
+   - Manually updated when **supplier prices change** (not automatically tied to `InventoryStock.CostPrice`).  
+   - Used as the default price for **new orders** unless overridden (e.g., discounts).  
+
+4. **Difference from `CostPrice` in InventoryStock**:  
+   | Field | Table | Purpose |  
+   |-------|-------|---------|  
+   | `WholesalePrice` | `Products` | **Current base price** (before taxes) for sales calculations. |  
+   | `CostPrice` | `InventoryStock` | **Actual purchase price** of a specific batch (used for FIFO & profit tracking). |  
+
+#### **Example Workflow:**  
+1. **Product Setup**:  
+   - Admin adds a product:  
+     ```  
+     ProductID: 101  
+     Name: "Premium 4L Paint"  
+     WholesalePrice: 800 NPR  
+     Category: "Paint"  
+     ShadeSlug: "royal-blue"  
+     ```  
+2. **Restocking**:  
+   - New batch arrives with `CostPrice = 820 NPR` (different from `WholesalePrice` due to market changes).  
+   - System records in `InventoryStock`:  
+     ```  
+     BatchID: 202  
+     ProductID: 101  
+     CostPrice: 820 NPR  
+     Quantity: 50  
+     PurchaseDateAD: 2024-07-10  
+     PurchaseDateBS: 2081-03-25  
+     ```  
+3. **Selling**:  
+   - Customer buys 10 units.  
+   - System uses **FIFO** (oldest `CostPrice` first) but applies taxes based on **current `WholesalePrice` (800 NPR)**.  
+
+---
+
+### **Summary**  
+- **`WholesalePrice`** = Current base price (before taxes) for sales.  
+- **`CostPrice`** = Historical purchase price per batch (for FIFO).  
+- Taxes are always calculated from `WholesalePrice`, while profit calculations may use `CostPrice`.  
+
+Let me know if you need further refinement!

@@ -1,0 +1,89 @@
+Here’s the refined version of your requirements with the requested clarifications and adjustments:
+
+---
+
+### **Revised Paint Shop Inventory Management System - Requirements Document**
+
+#### **1. Key Adjustments**  
+1. **Dynamic Product Cost**:  
+   - The `CostPrice` of a product is tied to its restocking batch (prices may vary per batch).  
+   - Example: A 4L paint may cost `800 NPR` in Batch A (purchased May 2024) but `850 NPR` in Batch B (purchased July 2024).  
+2. **ShadeSlug in Products**:  
+   - Moved `ShadeSlug` (e.g., "royal-blue", "pearl-white") to the `Products` table as it’s a core attribute.  
+3. **Dual Dates in Inventory**:  
+   - `InventoryStock` now includes both `PurchaseDateAD` (Gregorian) and `PurchaseDateBS` (Bikram Sambat).  
+
+---
+
+### **2. Clarification: Order Total Calculation**  
+The `TotalAmount` in an `Order` is the sum of all `OrderItems` after taxes:  
+
+#### **Formula for Each Order Item**:  
+1. **Excise (7%)**:  
+   ```  
+   ExcisePerItem = WholesalePrice × 0.07  
+   ```  
+2. **VAT (13%)**:  
+   ```  
+   VATPerItem = (WholesalePrice + ExcisePerItem) × 0.13  
+   ```  
+3. **Retail Price Per Item**:  
+   ```  
+   RetailPricePerItem = WholesalePrice + ExcisePerItem + VATPerItem  
+   ```  
+4. **Item Subtotal**:  
+   ```  
+   ItemTotal = RetailPricePerItem × Quantity  
+   ```  
+
+#### **Order Total**:  
+```  
+TotalAmount = Sum of all ItemTotals in the order  
+```  
+
+#### **Example**:  
+- A customer orders **10 units** of a product with:  
+  - `WholesalePrice = 800 NPR`  
+  - Calculations:  
+    - Excise: `800 × 0.07 = 56 NPR`  
+    - VAT: `(800 + 56) × 0.13 = 111.28 NPR`  
+    - Retail Price: `800 + 56 + 111.28 = 967.28 NPR`  
+    - ItemTotal: `967.28 × 10 = 9,672.80 NPR`  
+- If another item is added, repeat the steps and sum all `ItemTotals`.  
+
+---
+
+### **3. Updated Database Schema**  
+| Table           | Key Fields |  
+|-----------------|------------|  
+| `Products`      | `ProductID`, `Name`, `Category`, `Company`, `ShadeSlug`, `WholesalePrice` |  
+| `InventoryStock`| `BatchID`, `ProductID`, `Quantity`, `PurchaseDateAD`, `PurchaseDateBS`, `CostPrice` |  
+| `Orders`        | `OrderID`, `CustomerID`, `DateAD`, `DateBS`, `TotalAmount`, `PendingAmount` |  
+| `OrderItems`    | `ItemID`, `OrderID`, `ProductID`, `Quantity`, `UnitPrice`, `Excise`, `VAT` |  
+
+#### **Notes**:  
+- `UnitPrice` in `OrderItems` = `RetailPricePerItem` (pre-calculated for historical accuracy).  
+- `ShadeSlug` is now in `Products` (eliminates redundancy in `OrderItems`).  
+
+---
+
+### **4. Workflow Example with FIFO & Taxes**  
+1. **Restock**:  
+   - Add `BatchID=101` for `ProductID=1` (4L Paint, ShadeSlug="royal-blue"):  
+     - `PurchaseDateAD=2024-05-01`, `PurchaseDateBS=2081-01-18`, `CostPrice=800`, `Quantity=100`.  
+2. **Sell 30 Units**:  
+   - System deducts 30 units from `BatchID=101` (oldest batch first).  
+   - Calculates:  
+     - Excise: `800 × 0.07 = 56`  
+     - VAT: `(800 + 56) × 0.13 = 111.28`  
+     - ItemTotal: `(800 + 56 + 111.28) × 30 = 29,018.40 NPR`  
+   - Updates `Order.TotalAmount = 29,018.40 NPR`.  
+
+---
+
+### **5. Edge Cases & Validation**  
+- **Variable Costs**: Ensure FIFO always uses the `CostPrice` of the oldest batch.  
+- **ShadeSlug Consistency**: Reject orders if `ShadeSlug` is missing in `Products`.  
+- **Date Sync**: Automatically sync `PurchaseDateAD` and `PurchaseDateBS` using a library.  
+
+Let me know if you need further refinements!

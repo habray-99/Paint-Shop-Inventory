@@ -8,9 +8,9 @@ Tax calculations are critical. Excise duty is 7% on the wholesale price, then VA
 
 Reports and exports in CSV or Excel. The user mentioned generating reports per person, especially those with incomplete payments. The system should export order histories, inventory levels, and financial reports. Also, products from various companies should be trackable, so a company field in the product table is necessary.
 
-The app is desktop-only, so considering frameworks like Electron or JavaFX. Database choice is important—maybe SQLite for simplicity or PostgreSQL for scalability. Date handling in AD and BS might require a conversion library, so integrating that would be needed.
+The app is desktop-only, so i am using .net mvc. Database choice is important—maybe SQLite for simplicity or PostgreSQL for scalability. Date handling in AD and BS might require a conversion library, so integrating that would be needed.
 
-Testing and validation: Ensure that all calculations are accurate, FIFO works correctly, and reports are generated properly. Also, check that partial payments update the customer's pending balance correctly. Data export formats must be compatible with Excel without issues.
+Testing and validation: Ensure that all calculations are accurate, FIFO for inventory works correctly, and reports are generated properly. Also, check that partial payments update the customer's pending balance correctly. Data export formats must be compatible with Excel without issues.
 
 Potential edge cases: Handling different product categories (paint, putty, smart care) with their respective units. Making sure that when a product is sold, the correct category's stock is updated. Also, ensuring that the excise and VAT are applied correctly based on the product's category and wholesale price.
 

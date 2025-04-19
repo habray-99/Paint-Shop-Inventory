@@ -1,0 +1,60 @@
+erDiagram
+    Products ||--o{ InventoryStock : "1:N"
+    Products ||--o{ OrderItems : "1:N"
+    Customers ||--o{ Orders : "1:N"
+    Orders ||--o{ OrderItems : "1:N"
+    Orders ||--o{ Payments : "1:N"
+
+    Products {
+        int ProductId PK
+        string Name
+        int Category "1=Paint,2=Putty,3=SmartCare"
+        int Volume "Enum values"
+        string Company
+        string ShadeSlug
+        decimal WholesalePrice
+        decimal RetailPrice
+    }
+
+    InventoryStock {
+        int BatchId PK
+        int ProductId FK
+        int Quantity
+        date PurchaseDateAd
+        string PurchaseDateBs
+        decimal CostPrice
+    }
+
+    Customers {
+        int CustomerId PK
+        string Name
+        string Phone
+        string Address
+    }
+
+    Orders {
+        int OrderId PK
+        int CustomerId FK
+        date DateAd
+        string DateBs
+        decimal TotalAmount
+        decimal PendingAmount
+    }
+
+    OrderItems {
+        int ItemId PK
+        int OrderId FK
+        int ProductId FK
+        int Quantity
+        decimal UnitPrice
+        decimal ExciseTax
+        decimal VAT
+    }
+
+    Payments {
+        int PaymentId PK
+        int OrderId FK
+        decimal Amount
+        date PaymentDate
+        bool IsAdvance
+    }

@@ -1,0 +1,107 @@
+Here's a structured and detailed prompt for the paint shop inventory management software:
+
+---
+
+### **Paint Shop Inventory Management System - Requirements Document**
+
+#### **1. Overview**  
+Build a desktop application using **.NET MVC** for a paint shop to manage inventory, orders, customers, taxes, and reporting. The system must handle **FIFO-based inventory tracking**, **multi-step tax calculations**, **partial payments**, and **dual-date (AD & BS) support**.
+
+---
+
+### **2. Core Features**  
+
+#### **A. Inventory Management**  
+- **Products**:  
+  - Categories: Paint (e.g., 1L, 4L), Putty (e.g., 5Kg, 10Kg), Smart Care products.  
+  - Attributes: `ProductID`, `Name`, `Category`, `Volume/Weight`, `Company`, `WholesalePrice`, `RetailPrice`.  
+- **FIFO Tracking**:  
+  - Each stock entry includes `PurchaseDate`, `CostPrice`, `Quantity`, `BatchID`.  
+  - Deduct oldest stock first during sales. Auto-update inventory levels.  
+- **Restocking Alerts**: Notify when stock falls below a threshold.  
+
+#### **B. Order & Customer Management**  
+- **Customers**: `CustomerID`, `Name`, `Phone`, `Address`.  
+- **Orders**:  
+  - Fields: `OrderID`, `CustomerID`, `DateAD`, `DateBS`, `TotalAmount`, `PendingAmount`, `AdvancePayment`.  
+  - Order Items: `ProductID`, `Quantity`, `ShadeSlug` (e.g., "royal-blue"), `UnitPrice`, `Taxes`.  
+- **Partial Payments**: Track advances/pending amounts. Flag overdue payments.  
+
+#### **C. Tax Calculations**  
+- **Excise Duty (7%)**: Applied to the wholesale price of each item.  
+  ```  
+  Excise = WholesalePrice × 0.07  
+  ```  
+- **VAT (13%)**: Applied to `(WholesalePrice + Excise)`.  
+  ```  
+  VAT = (WholesalePrice + Excise) × 0.13  
+  ```  
+- **Retail Price**: `WholesalePrice + Excise + VAT`.  
+- **Order Total**: Sum of all item totals (including taxes).  
+
+#### **D. Reporting & Exports**  
+- **Reports**:  
+  - Customers with pending payments (sorted by date).  
+  - Inventory levels (low stock, expiry alerts).  
+  - Sales/financial summaries (daily, monthly).  
+- **Exports**: CSV/Excel for orders, inventory, and financial reports.  
+
+#### **E. Date Handling**  
+- Support **AD (Gregorian)** and **BS (Bikram Sambat)** dates. Use a library like `NepaliDateConverter`.  
+
+---
+
+### **3. Database Schema (Key Tables)**  
+| Table           | Key Fields |  
+|-----------------|------------|  
+| `Products`      | `ProductID`, `Name`, `Category`, `Company`, `WholesalePrice` |  
+| `InventoryStock`| `BatchID`, `ProductID`, `Quantity`, `PurchaseDate`, `CostPrice` |  
+| `Customers`     | `CustomerID`, `Name`, `Phone` |  
+| `Orders`        | `OrderID`, `CustomerID`, `DateAD`, `DateBS`, `TotalAmount`, `PendingAmount` |  
+| `OrderItems`    | `ItemID`, `OrderID`, `ProductID`, `Quantity`, `ShadeSlug`, `UnitPrice`, `Excise`, `VAT` |  
+| `Payments`      | `PaymentID`, `OrderID`, `Amount`, `PaymentDate`, `IsAdvance` |  
+
+---
+
+### **4. Technical Requirements**  
+- **Platform**: Desktop-only, .NET MVC (Windows).  
+- **Database**: **SQLite** (lightweight) or **PostgreSQL** (scalable).  
+- **Validation**:  
+  - Ensure FIFO works (test stock deductions).  
+  - Verify tax calculations match Nepal’s fiscal laws.  
+  - Test partial payments (e.g., advance reduces pending balance).  
+- **Edge Cases**:  
+  - Handle mixed categories (e.g., paint + putty in one order).  
+  - Support bulk imports/exports without format errors.  
+
+---
+
+### **5. Non-Functional Requirements**  
+- **Performance**: Handle 500+ concurrent inventory updates.  
+- **Data Export**: Excel/CSV must open in MS Office/LibreOffice without errors.  
+- **UI**: Simple forms for order entry, inventory lookup, and report filters.  
+
+---
+
+### **6. Example Workflow**  
+1. **Add Stock**:  
+   - User inputs `ProductID=101` (4L Paint), `Quantity=50`, `PurchaseDate=2024-05-01`, `CostPrice=800`.  
+2. **Create Order**:  
+   - Customer buys `30 units` of `ProductID=101`. System deducts oldest batch first.  
+   - Calculates:  
+     - Excise: `800 × 0.07 = 56`  
+     - VAT: `(800 + 56) × 0.13 = 111.28`  
+     - Retail Price: `800 + 56 + 111.28 = 967.28`  
+3. **Partial Payment**:  
+   - Customer pays `10,000` of `29,018.40` total. System updates `PendingAmount=19,018.40`.  
+
+---
+
+### **7. Deliverables**  
+1. Fully functional .NET MVC application.  
+2. Database schema script (SQL).  
+3. Documentation: User guide + tax calculation examples.  
+
+--- 
+
+This prompt ensures clarity for developers while covering functionality, edge cases, and compliance. Let me know if you'd like to emphasize any section!
