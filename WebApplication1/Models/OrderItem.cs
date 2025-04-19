@@ -1,8 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApplication1.Models;
 
+[Index(nameof(OrderId), IsUnique = false)]
+[Index(nameof(ProductId), IsUnique = false)]
 public class OrderItem
 {
     [Key]
@@ -14,22 +17,18 @@ public class OrderItem
     [ForeignKey("Product")]
     public int ProductId { get; set; }
 
-    [Required]
     public int Quantity { get; set; }
 
-    [Required]
-    [StringLength(50)]
-    public string PaintShade { get; set; } // Slug format
-
-    [Required]
     [Column(TypeName = "decimal(18,2)")]
-    public decimal ExciseDuty { get; set; } // 7% of batch cost
+    public decimal UnitPrice { get; set; }
 
-    [Required]
     [Column(TypeName = "decimal(18,2)")]
-    public decimal Vat { get; set; } // 13% of (cost + excise)
+    public decimal ExciseDuty { get; set; }
 
-    // Navigation properties
+    [Column(TypeName = "decimal(18,2)")]
+    public decimal VAT { get; set; }
+
+    // Navigation
     public Order Order { get; set; }
     public Product Product { get; set; }
 }

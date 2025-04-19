@@ -1,6 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
+using NepaliDateConverter.Net;
 
 namespace WebApplication1.Models;
 
@@ -16,12 +17,13 @@ public class InventoryStock
 
     public int Quantity { get; set; }
     
-    [Column(TypeName = "dateAD")]
+    [Column(TypeName = "date")]
     public DateTime PurchaseDateAd { get; set; }
-    [Column(TypeName = "dateBS")]
+    [Column(TypeName = "TEXT")]
     [MaxLength(20)]
+    [BsDateFormat]
     public string PurchaseDateBs { get; set; }
-    
+
     [Column(TypeName = "decimal(18,2)")]
     public decimal CostPrice { get; set; }
     
