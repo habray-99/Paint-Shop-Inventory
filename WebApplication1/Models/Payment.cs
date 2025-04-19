@@ -18,7 +18,7 @@ public class Payment
     [Column(TypeName = "decimal(18,2)")]
     public decimal Amount { get; set; }
 
-    [Column(TypeName = "dateAD")]
+    [Column(TypeName = "date")]
     public DateTime PaymentDateAd { get; set; }
     [Column(TypeName = "TEXT")]
     public string PaymentDateBs { get; set; }
