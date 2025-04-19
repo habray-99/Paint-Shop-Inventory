@@ -1,8 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApplication1.Models;
 
+[Index(nameof(OrderId))]
+[Index(nameof(PaymentDateAd))]
+[Index(nameof(PaymentDateBs))]
 public class Payment
 {
     [Key]
@@ -11,13 +15,16 @@ public class Payment
     [ForeignKey("Order")]
     public int OrderId { get; set; }
 
-    [Required]
     [Column(TypeName = "decimal(18,2)")]
-    public decimal AmountPaid { get; set; }
+    public decimal Amount { get; set; }
 
-    [Required]
-    public DateTime PaymentDate { get; set; }
+    [Column(TypeName = "dateAD")]
+    public DateTime PaymentDateAd { get; set; }
+    [Column(TypeName = "TEXT")]
+    public string PaymentDateBs { get; set; }
 
-    // Navigation property
+    public bool IsAdvance { get; set; }
+
+    // Navigation
     public Order Order { get; set; }
 }
