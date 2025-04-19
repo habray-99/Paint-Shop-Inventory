@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "E:\\paint shop\\WebApplication1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B48AEF64-E149-4E0C-9118-24F72BC78E8A}|WebApplication1.csproj|e:\\paint shop\\webapplication1\\orderitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B48AEF64-E149-4E0C-9118-24F72BC78E8A}|WebApplication1.csproj|solutionrelative:orderitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B48AEF64-E149-4E0C-9118-24F72BC78E8A}|WebApplication1.csproj|e:\\paint shop\\webapplication1\\controllers\\paymentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B48AEF64-E149-4E0C-9118-24F72BC78E8A}|WebApplication1.csproj|solutionrelative:controllers\\paymentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B48AEF64-E149-4E0C-9118-24F72BC78E8A}|WebApplication1.csproj|e:\\paint shop\\webapplication1\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B48AEF64-E149-4E0C-9118-24F72BC78E8A}|WebApplication1.csproj|solutionrelative:orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B48AEF64-E149-4E0C-9118-24F72BC78E8A}|WebApplication1.csproj|e:\\paint shop\\webapplication1\\controllers\\orderitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B48AEF64-E149-4E0C-9118-24F72BC78E8A}|WebApplication1.csproj|solutionrelative:controllers\\orderitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B48AEF64-E149-4E0C-9118-24F72BC78E8A}|WebApplication1.csproj|e:\\paint shop\\webapplication1\\inventorystockscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B48AEF64-E149-4E0C-9118-24F72BC78E8A}|WebApplication1.csproj|solutionrelative:inventorystockscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B48AEF64-E149-4E0C-9118-24F72BC78E8A}|WebApplication1.csproj|e:\\paint shop\\webapplication1\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B48AEF64-E149-4E0C-9118-24F72BC78E8A}|WebApplication1.csproj|solutionrelative:controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B48AEF64-E149-4E0C-9118-24F72BC78E8A}|WebApplication1.csproj|e:\\paint shop\\webapplication1\\controllers\\inventorystockscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B48AEF64-E149-4E0C-9118-24F72BC78E8A}|WebApplication1.csproj|solutionrelative:controllers\\inventorystockscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B48AEF64-E149-4E0C-9118-24F72BC78E8A}|WebApplication1.csproj|e:\\paint shop\\webapplication1\\webapplication1context-1f055f7f-d6e9-47f2-bba9-a248cd0b7754.db||{25834150-CD7E-11D0-92DF-00A0C9138C45}",
@@ -43,24 +47,37 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "OrderItemsController.cs",
-              "DocumentMoniker": "E:\\paint shop\\WebApplication1\\OrderItemsController.cs",
-              "RelativeDocumentMoniker": "OrderItemsController.cs",
-              "ToolTip": "E:\\paint shop\\WebApplication1\\OrderItemsController.cs",
-              "RelativeToolTip": "OrderItemsController.cs",
+              "Title": "PaymentsController.cs",
+              "DocumentMoniker": "E:\\paint shop\\WebApplication1\\Controllers\\PaymentsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PaymentsController.cs",
+              "ToolTip": "E:\\paint shop\\WebApplication1\\Controllers\\PaymentsController.cs",
+              "RelativeToolTip": "Controllers\\PaymentsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-19T06:45:26.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrderItemsController.cs",
+              "DocumentMoniker": "E:\\paint shop\\WebApplication1\\Controllers\\OrderItemsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\OrderItemsController.cs",
+              "ToolTip": "E:\\paint shop\\WebApplication1\\Controllers\\OrderItemsController.cs",
+              "RelativeToolTip": "Controllers\\OrderItemsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-19T06:42:59.013Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "OrdersController.cs",
-              "DocumentMoniker": "E:\\paint shop\\WebApplication1\\OrdersController.cs",
-              "RelativeDocumentMoniker": "OrdersController.cs",
-              "ToolTip": "E:\\paint shop\\WebApplication1\\OrdersController.cs",
-              "RelativeToolTip": "OrdersController.cs",
+              "DocumentMoniker": "E:\\paint shop\\WebApplication1\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\OrdersController.cs",
+              "ToolTip": "E:\\paint shop\\WebApplication1\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "Controllers\\OrdersController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-19T06:42:07.184Z",
@@ -68,12 +85,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "InventoryStocksController.cs",
-              "DocumentMoniker": "E:\\paint shop\\WebApplication1\\InventoryStocksController.cs",
-              "RelativeDocumentMoniker": "InventoryStocksController.cs",
-              "ToolTip": "E:\\paint shop\\WebApplication1\\InventoryStocksController.cs",
-              "RelativeToolTip": "InventoryStocksController.cs",
+              "DocumentMoniker": "E:\\paint shop\\WebApplication1\\Controllers\\InventoryStocksController.cs",
+              "RelativeDocumentMoniker": "Controllers\\InventoryStocksController.cs",
+              "ToolTip": "E:\\paint shop\\WebApplication1\\Controllers\\InventoryStocksController.cs",
+              "RelativeToolTip": "Controllers\\InventoryStocksController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-19T06:39:19.853Z",
@@ -81,7 +98,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "WebApplication1Context-1f055f7f-d6e9-47f2-bba9-a248cd0b7754.db",
               "DocumentMoniker": "E:\\paint shop\\WebApplication1\\WebApplication1Context-1f055f7f-d6e9-47f2-bba9-a248cd0b7754.db",
               "RelativeDocumentMoniker": "WebApplication1Context-1f055f7f-d6e9-47f2-bba9-a248cd0b7754.db",
@@ -92,7 +109,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "20250419055157_1.cs",
               "DocumentMoniker": "E:\\paint shop\\WebApplication1\\Migrations\\20250419055157_1.cs",
               "RelativeDocumentMoniker": "Migrations\\20250419055157_1.cs",
@@ -105,7 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "appsettings.json",
               "DocumentMoniker": "E:\\paint shop\\WebApplication1\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
