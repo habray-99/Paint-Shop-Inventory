@@ -1,16 +1,23 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 using WebApplication1.Models;
 
+[Index(nameof(Phone), IsUnique = true)]
+[Index(nameof(Name), IsUnique = false)]
 public class Customer
 {
-    [Key] public int CustomerId { get; set; }
+    [Key]
+    public int CustomerId { get; set; }
 
-    [Required] [StringLength(100)] public string Name { get; set; }
+    [Required, MaxLength(100)]
+    public string Name { get; set; }
 
-    [Required] [StringLength(20)] public string Phone { get; set; }
+    [MaxLength(15)]
+    public string Phone { get; set; }
 
-    [Required] [StringLength(200)] public string Address { get; set; }
+    [MaxLength(50)]
+    public string Address { get; set; }
 
-    // Navigation property
+    // Navigation
     public ICollection<Order> Orders { get; set; }
 }
